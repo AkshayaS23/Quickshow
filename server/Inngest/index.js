@@ -111,7 +111,7 @@ const sendShowReminders = inngest.createFunction(
     {id: "send-show-reminders"},
     {cron: "0 */8 * * *" }, //Everey 8 hrs
     async ({step})=>{
-        const now = new date();
+        const now = new Date();
         const in8Hours = new Date(now.getTime() + 8 * 60 * 60 * 1000);
         const windowStart = new Date(in8Hours.getTime() - 10 * 60 * 1000);
 
@@ -167,7 +167,7 @@ const sendShowReminders = inngest.createFunction(
                 }))
             )
         })
-         const sent = results.filter(r => r.status === 'fullfilled').length;
+         const sent = results.filter(r => r.status === 'fulfilled').length;
          const failed = results.length - sent;
 
          return {
